@@ -831,9 +831,9 @@ task t {
 }
 ```
 
-### Command Section
+### 命令行区块
 
-The `command` section is the *task section* that starts with the keyword 'command', and is enclosed in either curly braces `{ ... }` or triple angle braces `<<< ... >>>`.
+`command` 区块是*task section* 中以关键字'command'开始，由大括号`{ ... }` 或者三角括号 `<<< ... >>>`包含的部分。
 It defines a shell command which will be run in the execution environment after all of the inputs are staged and before the outputs are evaluated.
 The body of the command also allows placeholders for the parts of the command line that need to be filled in.
 

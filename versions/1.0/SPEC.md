@@ -1,7 +1,6 @@
-# Workflow Description Language
+# 流程描述语言（WDL，Workflow Description Language）
 
-## Table Of Contents
-
+## 内容目录
 <!---toc start-->
 
 * [Workflow Description Language](#workflow-description-language)

@@ -3,11 +3,11 @@
 ## 内容目录
 <!---toc start-->
 
-* [Workflow Description Language](#workflow-description-language)
-  * [Table Of Contents](#table-of-contents)
-  * [Introduction](#introduction)
-  * [State of the Specification](#state-of-the-specification)
-* [Language Specification](#language-specification)
+* [流程描述语言](#workflow-description-language)
+  * [目录](#table-of-contents)
+  * [介绍](#introduction)
+  * [当前发展情况](#state-of-the-specification)
+* [ 语言规范](#language-specification)
   * [Global Grammar Rules](#global-grammar-rules)
     * [Whitespace, Strings, Identifiers, Constants](#whitespace-strings-identifiers-constants)
     * [Types](#types)

@@ -5,7 +5,7 @@
 
 * [流程描述语言](#workflow-description-language)
   * [目录](#table-of-contents)
-  * [介绍](#introduction)
+  * [介绍](#介绍)
   * [更新记录](#state-of-the-specification)
 * [ 语言规范](#language-specification)
   * [全局语法规则](#global-grammar-rules)
@@ -159,9 +159,10 @@
 
 <!---toc end-->
 
-## Introduction
+## 介绍
 
-WDL is meant to be a *human readable and writable* way to express tasks and workflows.  The "Hello World" tool in WDL would look like this:
+<!-- WDL is meant to be a *human readable and writable* way to express tasks and workflows.  The "Hello World" tool in WDL would look like this: -->
+WDL被设计成以一种*易于用户读写*的方式来表达任务和工作流。最简单的“Hello World”工具的WDL就像这样：
 
 ```wdl
 task hello {
@@ -188,16 +189,21 @@ workflow wf {
 }
 ```
 
-This describes a task, called 'hello', which has two parameters (`String pattern` and `File in`).  A `task` definition is a way of **encapsulating a UNIX command and environment and presenting them as functions**.  Tasks have both inputs and outputs.  Inputs are declared as declarations at the top of the `task` definition, while outputs are defined in the `output` section.
+<!-- This describes a task, called 'hello', which has two parameters (`String pattern` and `File in`).  A `task` definition is a way of **encapsulating a UNIX command and environment and presenting them as functions**.  Tasks have both inputs and outputs.  Inputs are declared as declarations at the top of the `task` definition, while outputs are defined in the `output` section. -->
 
-The user must provide a value for these two parameters in order for this task to be runnable.  Implementations of WDL should accept their [inputs as JSON format](#specifying-workflow-inputs-in-json).  For example, the above task needs values for two parameters: `String pattern` and `File in`:
+这段WDL描述了一个任务，叫做 ‘hello’，它包括两个参数（`String pattern` 和 `File in`）。任务`task`的定义就是一种**把UNIX命令和执行环境封装成函数**的方式。任务有输入和输出，输入在`task`定义的`input`部分进行声明，而输出则是在`output`部分。
 
-|Variable           |Value    |
+<!-- The user must provide a value for these two parameters in order for this task to be runnable.  Implementations of WDL should accept their [inputs as JSON format](#specifying-workflow-inputs-in-json).  For example, the above task needs values for two parameters: `String pattern` and `File in`: -->
+
+如果用户需要让这个任务运行起来，则必须为它的两个参数提供值。WDL的实现需要能够接受这两个值[以JSON格式输入](#specifying-workflow-inputs-in-json)。例如，以上任务需要的两个参数需要输入值：`String pattern` 和 `File in`
+
+
+|变量名称           |输入值    |
 |-------------------|---------|
 |wf.hello.pattern   |^[a-z]+$ |
 |wf.hello.in        |/file.txt|
 
-Or, in JSON format:
+或者, 用JSON格式表示:
 
 ```json
 {
@@ -206,14 +212,18 @@ Or, in JSON format:
 }
 ```
 
-Running the `wf` workflow with these parameters would yield a command line from the `call hello`:
-
+<!-- Running the `wf` workflow with these parameters would yield a command line from the `call hello`:
+ -->
+ 以这些参数来运行`wf`工作流，会从`call hello`中产生一个实际会执行的命令行：
+ 
 ```
 egrep '^[a-z]+$' '/file.txt'
 ```
 
-A simple workflow that runs this task in parallel would look like this:
-
+<!-- A simple workflow that runs this task in parallel would look like this:
+ -->
+ 我们还可以设计一个简单的工作流，来并发执行多个任务：
+ 
 ```wdl
 workflow example {
   input {
@@ -225,8 +235,11 @@ workflow example {
 }
 ```
 
-The inputs to this workflow would be `example.files` and `example.hello.pattern`.
-
+<!-- The inputs to this workflow would be `example.files` and `example.hello.pattern`.
+ -->
+ 这个工作流的输入则会是`example.files`和`example.hello.pattern`。
+ 
+ 
 ## State of the Specification
 
 **17 August 2015**
